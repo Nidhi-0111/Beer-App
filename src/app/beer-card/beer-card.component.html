@@ -1,0 +1,14 @@
+<div class="container mt-5 border bg-light">
+    <h5 class="mt-4">BeerName : {{randomBeer.name}}</h5>
+    <div class="row p-3 align-items-center">
+      <div class="col-1 p-2 border">
+        <img *ngIf="randomBeer.image_url" [src]="randomBeer.image_url" class="card-img-top" alt="TastyBeer is on way">
+      </div>
+      <div class="col-8">{{randomBeer.description}}
+      </div>
+      <div class="col-3">
+        <button (click)="fetchRandomBeer()"type="button" class="btn btn-outline-primary btn-sm col-12 mt-1 mb-1">Another Beer</button>
+        <button (click)="fetchRandomNonAlcoholicBeer()" type="button" class="btn btn-outline-primary btn-sm col-12 mt-1 mb-1">Random Non-Alcoholic Beer</button>
+      </div>
+    </div>
+  </div>

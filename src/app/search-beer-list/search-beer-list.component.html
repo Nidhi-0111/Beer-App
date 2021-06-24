@@ -1,0 +1,29 @@
+<div class="container border bg-light">
+    <form class="d-flex mt-3 align-items-center">
+      <input [ngModelOptions]="{standalone: true}" [(ngModel)]="filterByVal" class="form-control col-3" type="text" placeholder="Search">
+      <div class="col-6 form-check d-flex">
+        <div class="col-3">
+          <input class="form-check-input" [(ngModel)]="filterByType" type="radio" value="name" name="filterBy" id="filterByName">
+          <label class="form-check-label" for="filterByName">By Name</label>
+        </div>
+        <div class="col-9">
+          <input class="form-check-input" [(ngModel)]="filterByType" type="radio" value="description" name="filterBy" id="filterByDesc" checked>
+          <label class="form-check-label" for="filterByDesc">By Description</label>
+        </div>
+      </div>
+      <button type="submit" class="col-3 btn btn-outline-primary btn-sm" (click)="searchBeers()">Search</button>
+    </form>
+    <div class="p-3 align-items-center">
+      <ul class="list-group">
+        <li *ngFor="let beer of beerList; let i = index" class="list-group-item d-flex p-3 align-items-center">
+          <div class="col-1 p-2 border">
+            <img *ngIf="beer.image_url" [src]="beer.image_url" class="card-img-top" alt="TastyBeer is on way">
+          </div>
+          <div class="col-11">
+            <h5 class="">BeerName : {{beer.name}}</h5>
+            <p>{{beer.description}}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
